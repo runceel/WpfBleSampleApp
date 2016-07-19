@@ -10,7 +10,8 @@
         Width="525"
         Loaded="Window_Loaded"
         Closed="Window_Closed">
-    <Grid>
+    <StackPanel>
         <TextBlock x:Name="TextBlockRSSI" />
-    </Grid>
+        <TextBlock x:Name="TextBlockMAC" />
+    </StackPanel>
 </Window>

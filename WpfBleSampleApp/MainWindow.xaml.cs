@@ -18,7 +18,7 @@ namespace WpfBleSampleApp
             this.watcher = new BluetoothLEAdvertisementWatcher();
 
             // CompanyIDとかDataでフィルタリングしたいとき
-            //var md = new BluetoothLEManufacturerData();
+            //var md = new BluetoothLEManufacturerDataWpfBleSampleApp
             //// company id 0xFFFF (多分これ https://www.bluetooth.com/specifications/assigned-numbers/company-Identifiers)
             //md.CompanyId = 0xFFFF; 
 
@@ -46,6 +46,7 @@ namespace WpfBleSampleApp
                     // ManufactureDataをもとにCompanyIDとったりできる
                 }
                 this.TextBlockRSSI.Text = $"{args.Timestamp:HH\\:mm\\:ss}, RSSI: {args.RawSignalStrengthInDBm}, Address: {args.BluetoothAddress.ToString("X")}, Type: {args.AdvertisementType}";
+                this.TextBlockMAC.Text = string.Join(":", BitConverter.GetBytes(args.BluetoothAddress).Reverse().Select(x => x.ToString("X2"))).Substring(6);
             });
         }
 
